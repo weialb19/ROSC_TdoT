@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Picture for you</title>
+</head>
+<body>
+    <div id="debug"></div>
+    <div>
+        <img alt="no image found" id="camera">
+    </div>
+    <div>
+        <button type="submit" onclick="debugMessage('up', 0, 1)" name="up" id="up">up</button>
+        <button type="submit" onclick="debugMessage('down', 0, -1)" name="down" id="down">down</button>
+        <button type="submit" onclick="debugMessage('left', -1, 0)" name="left" id="left">left</button>
+        <button type="submit" onclick="debugMessage('right', 1, 0)" name="right" id="right">right</button>
+    </div>
+    <script type="text/javascript">
+        websocket = new WebSocket("ws://localhost:6543/webpage");
+        websocket.onmessage = function (event){
+            const image = document.getElementById("camera");
+            image.src = 'data:image/jpeg;base64,'+event.data;
+        }
+
+        var messageToSend = {
+            x : 0,
+            y : 0
+        }
+
+        var debugMessage = function (msg, x, y) {
+            var debug = document.getElementById("debug");
+            debug.innerText = msg
+            messageToSend.x = x
+            messageToSend.y = y;
+            websocket.send(JSON.stringify(messageToSend));
+        }
+
+    </script>
+</body>
+</html>
