@@ -57,7 +57,12 @@ class MovementClient:
             motor1.duty_cycle = 0
             motor0reverse.duty_cycle = 0
             motor1reverse.duty_cycle = 0
-        elif y == 0:
+        elif y > 0 and -0.15 <= x <= 0.15:
+            motor0.duty_cycle = 65535
+            motor1.duty_cycle = 65535
+            motor0reverse.duty_cycle = 0
+            motor1reverse.duty_cycle = 0
+        elif y > 0 and -0.15 < x or 0.15 < x:
             motor0reverse.duty_cycle = 0
             motor1reverse.duty_cycle = 0
             if x == 0:
@@ -74,17 +79,13 @@ class MovementClient:
             motor1.duty_cycle = 0
             motor0reverse.duty_cycle = 65535
             motor1reverse.duty_cycle = 65535
-        elif y > 0:
-            motor0.duty_cycle = 65535
-            motor1.duty_cycle = 65535
-            motor0reverse.duty_cycle = 0
-            motor1reverse.duty_cycle = 0
+
         pass
 
 
 
 def runTheClient():
-    io_loop = tornado.ioloop.IOLoop.current()
+    io_loop = tornado.ioloop.IOLoop()
     client = MovementClient(io_loop)
     io_loop.add_callback(client.start)
     io_loop.start()
