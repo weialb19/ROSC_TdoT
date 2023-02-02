@@ -64,11 +64,11 @@ class MovementClient:
                 motor0.duty_cycle = 65535
                 motor1.duty_cycle = 65535
             elif x > 0:
-                motor0.duty_cycle = 3250
-                motor1.duty_cycle = 65535
-            elif x < 0:
                 motor0.duty_cycle = 65535
-                motor1.duty_cycle = 3250
+                motor1.duty_cycle = 32500
+            elif x < 0:
+                motor0.duty_cycle = 32500
+                motor1.duty_cycle = 65535
         elif y < 0:
             motor0.duty_cycle = 0
             motor1.duty_cycle = 0
