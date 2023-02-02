@@ -52,7 +52,10 @@ class MovementClient:
         pass
 
     def make_move(self, x, y):
-        if x == 0 and y == 1:
+        if x == 0 and y == 0:
+            motor0.duty_cycle = 0
+            motor1.duty_cycle = 0
+        elif x == 0 and y == 1:
             # print(x)
             # print(y)
             motor0.duty_cycle = 65535
