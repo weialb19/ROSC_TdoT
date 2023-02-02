@@ -57,7 +57,7 @@ class MovementClient:
             motor1.duty_cycle = 0
             motor0reverse.duty_cycle = 0
             motor1reverse.duty_cycle = 0
-        elif y > 0:
+        elif y == 0:
             motor0reverse.duty_cycle = 0
             motor1reverse.duty_cycle = 0
             if x == 0:
@@ -72,15 +72,13 @@ class MovementClient:
         elif y < 0:
             motor0.duty_cycle = 0
             motor1.duty_cycle = 0
-            if x == 0:
-                motor0reverse.duty_cycle = 65535
-                motor1reverse.duty_cycle = 65535
-            elif x > 0:
-                motor0reverse.duty_cycle = 3250
-                motor1reverse.duty_cycle = 65535
-            elif x < 0:
-                motor0reverse.duty_cycle = 65535
-                motor1reverse.duty_cycle = 3250
+            motor0reverse.duty_cycle = 65535
+            motor1reverse.duty_cycle = 65535
+        elif y > 0:
+            motor0.duty_cycle = 65535
+            motor1.duty_cycle = 65535
+            motor0reverse.duty_cycle = 0
+            motor1reverse.duty_cycle = 0
         pass
 
 
