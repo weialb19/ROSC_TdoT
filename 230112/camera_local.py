@@ -7,7 +7,7 @@ capture = cv.VideoCapture(0)
 
 async def send_capture():
    # print('try to send capture')
-    async with websockets.connect("ws://10.100.12.25:6543/camera") as websocket:
+    async with websockets.connect("ws://192.168.0.167:6543/camera") as websocket:
         while True:
             #print('capture frame')
             ret, frame = capture.read()

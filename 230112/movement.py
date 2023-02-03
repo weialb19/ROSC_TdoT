@@ -28,7 +28,7 @@ class MovementClient:
         pass
 
     def connect(self):
-        tornado.websocket.websocket_connect(url=f'ws://10.100.12.25:6543/movement', callback=self.retry_connect,
+        tornado.websocket.websocket_connect(url=f'ws://192.168.0.167:6543/movement', callback=self.retry_connect,
                                             on_message_callback=self.on_message,
                                             ping_interval=10, ping_timeout=30)
         pass
@@ -62,15 +62,15 @@ class MovementClient:
             motor1.duty_cycle = 65535
             motor0reverse.duty_cycle = 0
             motor1reverse.duty_cycle = 0
-        elif y > 0 and -0.15 < x or 0.15 < x:
+        elif y > 0 and -0.15 > x or 0.15 < x:
             motor0reverse.duty_cycle = 0
             motor1reverse.duty_cycle = 0
             # fixing tomorrow
             if x > 0:
                 motor0.duty_cycle = 65535
-                motor1.duty_cycle = 32500
+                motor1.duty_cycle = 12500
             elif x < 0:
-                motor0.duty_cycle = 32500
+                motor0.duty_cycle = 12500
                 motor1.duty_cycle = 65535
         elif y < 0:
             motor0.duty_cycle = 0
