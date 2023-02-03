@@ -459,7 +459,7 @@
 
 	</div>
 	<script type="text/javascript">
-		websocket = new WebSocket("ws://10.100.12.25:6543/webpage");
+		websocket = new WebSocket("ws://192.168.0.167:6543/webpage");
 		websocket.onmessage = function (event) {
 			const image = document.getElementById("camera");
 			image.src = 'data:image/jpeg;base64,' + event.data;
