@@ -60,8 +60,8 @@ class MovementClient:
         elif y < 0:
             motor0.duty_cycle = 0
             motor1.duty_cycle = 0
-            motor0reverse.duty_cycle = 65534/2
-            motor1reverse.duty_cycle = 65534/2
+            motor0reverse.duty_cycle = 30000
+            motor1reverse.duty_cycle = 30000
         elif y > 0 and -0.15 <= x <= 0.15:
             motor0.duty_cycle = 65535
             motor1.duty_cycle = 65535
