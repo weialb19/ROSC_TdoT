@@ -63,8 +63,8 @@ class MovementClient:
             motor0reverse.duty_cycle = 30000
             motor1reverse.duty_cycle = 30000
         elif y > 0 and -0.15 <= x <= 0.15:
-            motor0.duty_cycle = 65535
-            motor1.duty_cycle = 65535
+            motor0.duty_cycle = 30000
+            motor1.duty_cycle = 30000
             motor0reverse.duty_cycle = 0
             motor1reverse.duty_cycle = 0
         elif y > 0 and -0.15 > x or 0.15 < x:
@@ -72,11 +72,12 @@ class MovementClient:
             motor1reverse.duty_cycle = 0
             # fixing tomorrow
             if x > 0:
-                motor0.duty_cycle = 65535
+                motor0.duty_cycle = 30000
                 motor1.duty_cycle = 12500
             elif x < 0:
                 motor0.duty_cycle = 12500
-                motor1.duty_cycle = 65535
+                motor1.duty_cycle = 30000
+                 
 
 
         pass
