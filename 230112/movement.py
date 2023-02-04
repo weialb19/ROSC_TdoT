@@ -73,11 +73,11 @@ class MovementClient:
             # fixing tomorrow
             if x > 0:
                 motor0.duty_cycle = 30000
-                motor1.duty_cycle = 12500
+                motor1.duty_cycle = 5000
             elif x < 0:
-                motor0.duty_cycle = 12500
+                motor0.duty_cycle = 5000
                 motor1.duty_cycle = 30000
-                 
+
 
 
         pass
